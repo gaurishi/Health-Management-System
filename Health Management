@@ -1,0 +1,75 @@
+import datetime
+def gettime():
+    return datetime.datetime.now()
+
+def take(k):
+    c=int(input("Enter 1 for breakfast, 2 for morning exercise, 3 for lunch, 4 for evening exercise, 5 for snacks, 6 for dinner"))
+    if c == 1:
+        value = input("input what you had for breakfast:")
+        with open("breakfast.txt","a") as op:
+            op.write(str([str(gettime())]) + ":" + "breakfast is " + value + "\n")
+            print("Breakfast added successfully")
+    if c == 2:
+        value = input("input what you did in morning exercise:")
+        with open("morning_exercise.txt","a") as op:
+            op.write(str([str(gettime())]) + ":" + "exercise is " + value + "\n")
+            print("Morning exercise added successfully")
+    if c == 3:
+        value = input("input what you had for lunch:")
+        with open("lunch.txt","a") as op:
+            op.write(str([str(gettime())]) + ":" + "lunch is " + value + "\n")
+            print("Lunch added successfully")
+    if c == 4:
+        value = input("input what you did in evening exercise:")
+        with open("evening_exercise.txt","a") as op:
+            op.write(str([str(gettime())]) + ":" + "evening exercise is " + value + "\n")
+            print("Evening exercise added successfully")
+    if c == 5:
+        value = input("input what you had for snacks:")
+        with open("snacks.txt","a") as op:
+            op.write(str([str(gettime())]) + ":" + "snacks is " + value + "\n")
+            print("Snacks added successfully")
+    if c == 6:
+        value = input("input what you had for dinner:")
+        with open("dinner.txt","a") as op:
+            op.write(str([str(gettime())]) + ":" + "dinner is " + value + "\n")
+            print("Dinner added successfully")
+            
+            
+def retrieve(k):
+    c=int(input("Enter 1 for breakfast, 2 for morning exercise, 3 for lunch, 4 for evening exercise, 5 for snacks, 6 for dinner")) 
+    if c == 1:
+        with open("breakfast.txt") as op:
+            for i in op:
+                print(i)
+    if c == 2:
+        with open("morning_exercise.txt") as op:
+            for i in op:
+                print(i)
+    if c == 3:
+        with open("lunch.txt") as op:
+            for i in op:
+                print(i)
+    if c == 4:
+        with open("evening_exercise.txt") as op:
+            for i in op:
+                print(i)
+    if c == 5:
+        with open("snacks.txt") as op:
+            for i in op:
+                print(i)
+    if c == 6:
+        with open("dinner.txt") as op:
+            for i in op:
+                print(i)
+    
+    
+    
+print("--------------------------------------------HEALTH MANAGEMENT SYSTEM-----------------------------------------------------")
+k= int(input("Press 1 to log data and 2 to retrieve data from file \n"))
+if k == 1:
+    take(k)
+elif k == 2:
+    retrieve(k)
+else:
+    print("incorrect input, please select from given option.")
